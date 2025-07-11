@@ -60,6 +60,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
 
 // Initialize app
 const app = express();
@@ -87,9 +89,28 @@ app.use('/api/profiles', profileRoutes);
 
 // Root health check route
 app.get('/', (req, res) => {
-  res.send('✅ Worker Profile API is running...');
+  res.send('Worker Profile API is running...');
 });
 
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Worker Profile API',
+      version: '1.0.0',
+      description: 'API documentation for Worker Profile project',
+    },
+    servers: [
+      {
+        url: 'https://trackingworkers-profiles-1.onrender.com', // Change to your deployed URL when needed
+      },
+    ],
+  },
+  apis: ['./routes/*.js'], // Path to the API docs
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Server port
 const PORT = process.env.PORT || 10000;
