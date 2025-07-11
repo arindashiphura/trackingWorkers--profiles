@@ -85,8 +85,12 @@ mongoose.connect(process.env.MONGO_URI, {
 const profileRoutes = require('./routes/profile');
 app.use('/api/profiles', profileRoutes);
 
+
+
+
+
 // Server port
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
