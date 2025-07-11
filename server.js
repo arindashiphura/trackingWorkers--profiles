@@ -25,6 +25,22 @@ const profileRoutes = require('./routes/profile');
 // Use profile routes
 app.use('/api/profiles', profileRoutes);
 
+// Health/status routes for profiles
+app.get('/api/profiles/clear', (req, res) => {
+  res.send('✅ Profiles route is working!');
+});
+app.get('/api/profiles/list/clear', (req, res) => {
+  res.send('✅ List Profiles route is working!');
+});
+app.get('/api/profiles/create/clear', (req, res) => {
+  res.send('✅ Create Profile route is working!');
+});
+app.get('/api/profiles/edit/clear', (req, res) => {
+  res.send('✅ Edit Profile route is working!');
+});
+app.get('/api/profiles/delete/clear', (req, res) => {
+  res.send('✅ Delete Profile route is working!');
+});
 
 // Serve upload folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
