@@ -6,7 +6,7 @@ const connectDB = require('./config/db');
 
 
 const app = express();
-
+const port = 9000;
 // Middleware to handle CORS
 app.use(
   cors({
