@@ -17,10 +17,13 @@ const upload = multer({ storage });
 
 // Create profile
 router.post('/', upload.single('photo'), profileController.createProfile);
+
 // Get all profiles
 router.get('/', profileController.getAllProfiles);
+
 // Update profile
 router.put('/:id', upload.single('photo'), profileController.updateProfile);
+
 // Delete profile
 router.delete('/:id', profileController.deleteProfile);
 
