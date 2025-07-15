@@ -102,7 +102,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'https://trackingworkers-profiles-1.onrender.com', // Change to your deployed URL when needed
+        url: 'https://trackingworkers-profiles.onrender.com', // Change to your deployed URL when needed
       },
     ],
   },
